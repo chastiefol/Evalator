@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .mobile{
+            min-width: 320px;
+            max-width: 450px;
+            min-height: 500px;
+        }
+        .h-20{
+            height: 20%;
+        }
+        .h-16{
+            height: 16%;
+        }
+        body{
+            color: white;
+            font-size: 46px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid bg-dark">
+        <div class="mobile w-100 bg-white m-auto position-relative text-center">
+            <div id="display" class="row min-vh-20 bg-dark p-0 h-20 m-0">
+            </div>
+            <div class="row min-vh-20 p-0 h-16 m-0">
+                <div class="border border-dark col-3 bg-secondary" onclick="clean()">
+                    AC
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="minus()">
+                    +/-
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="action('%')">
+                    %
+                </div>
+                <div class="border border-dark col-3 bg-warning" onclick="action('/')">
+                    ÷
+                </div>
+            </div> 
+            <div class="row min-vh-20 p-0 h-16 m-0">
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(7)">
+                    7
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(8)">
+                    8
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(9)">
+                    9
+                </div>
+                <div class="border border-dark col-3 bg-warning" onclick="action('*')">
+                    x
+                </div>
+            </div>
+            <div class="row min-vh-20 p-0 h-16 m-0">
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(4)">
+                    4
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(5)">
+                    5
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(6)">
+                    6
+                </div>
+                <div class="border border-dark col-3 bg-warning" onclick="action('-')">
+                    -
+                </div>
+            </div>
+            <div class="row min-vh-20 bg-ligth p-0 h-16 m-0">
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(1)">
+                    1
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(2)">
+                    2
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton(3)">
+                    3
+                </div>
+                <div class="border border-dark col-3 bg-warning" onclick="action('+')">
+                    +
+                </div>
+            </div>
+            <div class="row min-vh-20 bg-ligth p-0 h-16 m-0">
+                <div class="border border-dark col-6 bg-secondary" onclick="addButton(0)">
+                    0
+                </div>
+                <div class="border border-dark col-3 bg-secondary" onclick="addButton('.')">
+                    .
+                </div>
+                <div class="border border-dark col-3 bg-warning" onclick="sum()">
+                    =
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        equa = '';
+        number = '';
+        function addButton(button){
+            document.getElementById("display").innerHTML += button;
+            number += button;
+        }
+        function action(act){
+            equa += number;
+            equa += act;
+            document.getElementById("display").innerHTML += act;
+            number = '';
+        }
+        function minus(){
+            alert('Bug');
+        }
+        function clean(){         
+            document.getElementById("display").innerHTML = '';
+            equa = '';
+            number = '';
+        }
+        function sum(){
+            equa += number;
+            document.getElementById("display").innerHTML = eval(equa);
+            equa = eval(equa);
+            number = '';
+        }
+    </script>
+</body>
+</html>
